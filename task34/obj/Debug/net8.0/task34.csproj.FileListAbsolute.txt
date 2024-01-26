@@ -12,3 +12,4 @@ C:\Users\РомаИлиля\Desktop\Task34\task34\obj\Debug\net8.0\refint\task34
 C:\Users\РомаИлиля\Desktop\Task34\task34\obj\Debug\net8.0\task34.pdb
 C:\Users\РомаИлиля\Desktop\Task34\task34\obj\Debug\net8.0\task34.genruntimeconfig.cache
 C:\Users\РомаИлиля\Desktop\Task34\task34\obj\Debug\net8.0\ref\task34.dll
+C:\Users\РомаИлиля\Desktop\Task34\task34\obj\Debug\net8.0\task34.sourcelink.json
