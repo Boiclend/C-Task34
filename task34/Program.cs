@@ -1,31 +1,51 @@
 ﻿// С клавиатуры вводится число N (типа int). Используя алгоритм «Решето Эратосфена», необходимо найти все простые числа
 //  (т.е. делящиеся только на себя и на единицу) в интервале [0;N].
 
-
-int m, k = 0;
-Console.WriteLine("Введите число");
-m = Convert.ToInt32(Console.ReadLine());
-int b = (int)Math.Sqrt(m) + 1;
-int[] number = new int[m];
-for (int i = 0; i < m; i++)
+Console.Write("Введите число - N: ");
+int n = Convert.ToInt32(Console.ReadLine());
+int size_array = n - 1;
+int[] arrayPtr = new int[size_array];
+for (int i = 0; i < size_array; i++)
 {
-    number[i] = i;
+    arrayPtr[i] = i + 2;
 }
-for (int i = 0; i < m; i++) {
-    for (int j = 2; j < number[i]; j++) {
-        if (number[i] % j == 0)
-        {
-            number[i] = 0;
-        }
-    }
-}   
-for (int i = 0; i < m; i++) {
-    if (number[i] > 1)
+int p = 2;
+int index = 0;
+
+while (p < n - 1)
+{
+    try
     {
-        k++;
-        Console.WriteLine(number[i]);
+        for (int i = p * p - 2; i < size_array; i += p)
+        {
+            arrayPtr[i] = -1;
+        }
+
+        while (arrayPtr[index] <= p )
+        {
+            index++;
+        }
+        p = arrayPtr[index];
     }
-} 
-      
-    
-Console.WriteLine("количество простых чисел = " + k);
+    catch
+    {
+        for (int i = 0; i < size_array; i++)
+        {       
+            if (arrayPtr[i] != -1)
+            {
+                Console.Write($"{arrayPtr[i]} ");
+            }
+        }
+        return;
+    }
+}
+
+for (int i = 0; i < size_array; i++)
+{
+    if (arrayPtr[i] != -1)
+    {
+        Console.Write($"{arrayPtr[i]} ");
+    }
+}
+Console.WriteLine();
+Console.ReadKey();
